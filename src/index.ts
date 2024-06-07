@@ -2,7 +2,10 @@ const lockElements = new WeakSet();
 
 const isBodyOrHTML = (target: HTMLElement) => target === document.body || target === document.documentElement;
 
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+let isIOS = false
+if (typeof navigator !== 'undefined') {
+	isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+}
 
 const getTarget = (target?: HTMLElement) => {
 	if (target == undefined) {
